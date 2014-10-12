@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "home_controller.js",
+  "sourceRoot": "",
+  "sources": [
+    "home_controller.coffee"
+  ],
+  "names": [],
+  "mappings": ";AACA;AAAA,EAAA,GAAG,CAAC,GAAJ,CAAQ,GAAR,EAAa,SAAC,GAAD,EAAM,GAAN,GAAA;WACX,GAAG,CAAC,IAAJ,CAAS,eAAT,EADW;EAAA,CAAb,CAAA,CAAA;AAAA"
+}
