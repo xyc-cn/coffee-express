@@ -22,13 +22,59 @@
 
   User = require('./models/user')(mongoose);
 
-  app.get('/', function(req, res) {
-    User.register('555', 'ddd', 'df');
+  app.get('/register', function(req, res) {
+    var account, email, password;
+    account = req.query.account;
+    password = req.query.password;
+    email = req.query.email;
+    if (!account || !password || !email) {
+      res.render("index", {
+        title: 'error',
+        content: 'tttt'
+      });
+    } else {
+      User.register(email, password, account, function(data) {
+        return console.log(data);
+      });
+      res.render("index", {
+        title: 'register',
+        content: 'tttt'
+      });
+    }
+    return console.log("visited");
+  });
+
+  app.get('/login', function(req, res) {
+    User.login('dffg', 'ddfgd', function(data) {
+      return console.log(data);
+    });
     res.render("index", {
-      title: 'sss',
+      title: 'login',
       content: 'tttt'
     });
-    return console.log("visited");
+    return console.log("login");
+  });
+
+  app.get('/update', function(req, res) {
+    User.update('kkg', 'ddfgdddffsssddd', function(err, data) {
+      return console.log(data);
+    });
+    res.render("index", {
+      title: 'update',
+      content: 'tttt'
+    });
+    return console.log("update");
+  });
+
+  app.get('/delete', function(req, res) {
+    User.deleteUser('kkg', function(err, data) {
+      return console.log(data);
+    });
+    res.render("index", {
+      title: 'delete',
+      content: 'tttt'
+    });
+    return console.log("delete");
   });
 
   app.listen(3000);
